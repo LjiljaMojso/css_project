@@ -93,6 +93,7 @@ p.about{
 }
 div.row{
     padding:15px;
+    position: relative;
 
 }
 h3{
@@ -101,12 +102,20 @@ h3{
     font-size: 18px;
     text-align: center;
 }
-i.icon img{ 
-    border: 1px solid#abadb1;
-    border-radius: 39%;
+img.circle{
     margin: 5px;
-    padding: 58px;
+    padding: 50px;
     
+}
+div.icon{
+    background-color: transparent;
+    border: 2px solid #abadb1;
+    width: 145px;
+    height: 145px;
+    border-radius: 70px;
+    position: absolute;
+    top: 6%;
+    left: 21%;
 }
 
 section#newsleter{
@@ -303,7 +312,6 @@ section#contact{
     background-image: url(./img/contact-background.jpg);
     background-repeat: no-repeat;
     width: 100%;
-    max-width: 1400px;
     height: 600px;
     position: relative;
 }
@@ -537,9 +545,15 @@ p.footer{
     }
     div.row{
         padding: 40px;
+    
     }
     div.row h3{
         display: block;
+    }
+    div.icon {
+        position: absolute;
+        top: 12%;
+        left: 36%;
     }
     
     form.newsleter{
