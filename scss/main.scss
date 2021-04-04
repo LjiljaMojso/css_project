@@ -1,9 +1,12 @@
+@import 'mixin';
+@import 'variables';
+
 *{
     box-sizing: border-box;
 }
 body{
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    @include marginZero-paddingZero;
+    font-family: $font-rule;
 }
 .cf::before, .cf:after{
     content:'';
@@ -13,10 +16,10 @@ body{
 header {
     width: 100%;
     height: 500px;
-    background-image: url(./img/main-banner.jpg);
+    background-image: url(../img/main-banner.jpg);
     background-size: cover;
 	text-align: center;
-    color: #fff;
+    color:$light-color;
     position: relative;
 }
 section.navigation{
@@ -25,37 +28,39 @@ section.navigation{
     width: 60%;
     text-align: center;
     margin: auto;
-}
-p#logo{
-    float: left;
-    margin-top: 30px;
-}
-p#menu{
-    float: right;
-    padding-left: 10px;
-    padding-bottom: 5px;
-    margin-top: 30px;
-}
-p#menu img{
-    padding-left: 10px;
-}
-section.main-intro{
-    max-width: 1000px;
-    width: 60%;
-    text-align:center;
-    margin: auto;
-    position: absolute;
-    left: 260px;
-    top: 70px;
 
+   .main-intro{
+       max-width: 1000px;
+       width: 60%;
+       text-align:center;
+       margin: auto;
+       position: absolute;
+       left: 260px;
+       top: 70px;
+    }
 }
-p{
-    color:#fff;
+p {
+    color:$light-color;
     margin: auto;
 
+    &#logo {
+      float: left;
+      margin-top: 30px;
+    }
+  
+    &#menu {
+      float: right;
+      padding-left: 10px;
+      padding-bottom: 5px;
+      margin-top: 30px;
+  
+      img {
+        padding-left: 10px;
+      }
+    }
 }
 span{
-    color: #f7600f;
+    color: $btnColor;
     font-weight: bold;
 }
 h1{
@@ -71,12 +76,13 @@ p.btn{
     text-align: center;
     line-height: 15px;
     text-transform: uppercase;
-    border: 1px solid #fff;
+    border: 1px solid $light-color;
     padding: 10px;
     border-radius: 10px;
-}
-p.btn:hover{
-    background-color:#f7600f;
+
+    &:hover{
+      background-color:$btnColor;
+    }
 
 }
 div.container1{
@@ -88,7 +94,7 @@ div.container1{
     margin-bottom: 60px;
 }
 p.about{
-    color: #abadb1;
+    color: $padding-color;
     
 }
 div.row{
@@ -98,7 +104,7 @@ div.row{
 }
 h3{
     display: inline-block;
-    color:#abadb1 ;
+    color:$paragraf-color ;
     font-size: 18px;
     text-align: center;
 }
@@ -109,7 +115,7 @@ img.circle{
 }
 div.icon{
     background-color: transparent;
-    border: 2px solid #abadb1;
+    border: 2px solid $paragraf-color;
     width: 145px;
     height: 145px;
     border-radius: 70px;
@@ -119,7 +125,7 @@ div.icon{
 }
 
 section#newsleter{
-    background-image: url(./img/newsletter-background.jpg);
+    background-image: url(../img/newsletter-background.jpg);
     width: 100%;
     height: 180px;
     position: relative;
@@ -134,31 +140,30 @@ form.newsleter{
 input.newsleter{
     height: 37px;
     width: 50%;
-    border: solid 2px #f7f7f7;
-    background-color:#f7f7f7;
+    @include borderBtn;
     outline: none;
     border-radius: 5px;
     box-shadow: inset 0 0px 1px rgba(0,0,0,0.07);
 }
 
 button.btn{
-    background-color:#f7600f;
+    background-color:$btnColor;
     display: inline-block;
     width: 150px;
     margin-top: 0px;
     margin-left: 15px;
     text-align: center;
-    color: #f7f7f7;
     line-height: 15px;
     text-transform: uppercase;
-    border: 1px solid #fff;
+    color: #f7f7f7;
+    border: 1px solid $light-color;
     padding: 10px;
     border-radius: 10px;
-}
-button.btn:hover{
-    background-color: white;
-    color: #f7600f;
 
+    &:hover{
+    background-color:$light-color;
+    color: $btnColor;
+    }
 }
 main{
     width: 100%;
@@ -167,25 +172,11 @@ main{
     text-align: center;
 }
 p#works-paragraf{
-    color: #abadb1;
+    color: $paragraf-color;
     margin: auto;
     margin-bottom: 25px;
     text-align: center;
     width: 50%
-}
-.naslov{
-    width: 100%;
-    text-align: center;
-    margin-bottom: 25px;
-}
-div.naslov h1{
-    font-size: 20px;
-    font-weight: bold;
-    padding: 15px;
-}
-div.naslov p{
-    font-size: 16px;
-    padding: 10px;
 }
 .container{
     position: relative;
@@ -208,11 +199,7 @@ div.naslov p{
 .middle{
     transition: .5s ease;
     opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
+    @include centerPosition(50%,50%);
     text-align: center;
 }
 .container:hover .image{
@@ -222,7 +209,7 @@ div.naslov p{
     opacity: 1;
 }
 .text {
-    background-color: #f7600f;
+    background-color: $btnColor;
     color: white;
     font-size: 16px;
     padding: 15px 28px;
@@ -230,7 +217,7 @@ div.naslov p{
 
 #testimonials{
     width: 100%;
-    background-image: url(./img/testimonials-background.jpg);
+    background-image: url(../img/testimonials-background.jpg);
     height: 300px;
 }
 .testimonials{
@@ -241,21 +228,26 @@ div.naslov p{
     position: relative;
 }
 
-img.arrowl{
-    position: absolute;
-    top: 130px;
-    left: 0px;
+img{
+    &.arrowl {
+        position: absolute;
+        top: 130px;
+        left: 0px;
+    }
+    
+    &.arrowr {
+        position: absolute;
+        top: 130;
+        right: 0px;
+    }
+    
+    &#avatar {
+        position: absolute;
+        top: 20px;
+        right: 460px;
+    }
 }
-img.arrowr{
-    position: absolute;
-    top: 130;
-    right: 0px;
-}
-img#avatar{
-    position: absolute;
-    top: 20px;
-    right: 460px;
-}
+
 .testimonials p{
     position: absolute;
     font-style: italic;
@@ -274,69 +266,73 @@ div#works-title{
     margin-bottom: 50px;
     margin-top: 50px;
 }
-article.team{
-    float:left;
+article.team {
+    float: left;
     width: 23%;
     margin-right: 2%;
     padding-bottom: 40px;
-}
-
-article.team img{
-    width: 100%;
-}
-article.team h4{
-    color: #767a83;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding-top: 25px;
-    
-}
-article.team img.social-icons{
-    width: 60%;
-    margin:10px 40px;
-}
-article.team p{
-    color: #767a83;
-
-}
-article.team:hover {
-    opacity: 2;
-    transform: scale(1.15,1.15);
-	-webkit-transform:scale(1.15,1.15);
-	-moz-transform:scale(1.15,1.15);
-	-ms-transform:scale(1.15,1.15);
-	-o-transform:scale(1.15,1.15);
+  
+    img {
+      width: 100%;
+    }
+  
+    h4 {
+      color:$article-color ;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding-top: 25px;
+    }
+  
+    img.social-icons {
+      width: 60%;
+      margin: 10px 40px;
+    }
+  
+    p {
+      color:$article-color;
+    }
+  
+    &:hover {
+      opacity: 2;
+      transform: scale(1.15, 1.15);
+      -webkit-transform: scale(1.15, 1.15);
+      -moz-transform: scale(1.15, 1.15);
+      -ms-transform: scale(1.15, 1.15);
+      -o-transform: scale(1.15, 1.15);
+    }
 }
 section#contact{
-    background-image: url(./img/contact-background.jpg);
+    background-image: url(../img/contact-background.jpg);
     background-repeat: no-repeat;
     width: 100%;
     height: 600px;
     position: relative;
 }
-div.section-title{
+div.section-title {
     margin-top: 50px;
     margin-bottom: 50px;
     padding: 20px;
     text-align: center;
     position: absolute;
-    top:0px;
+    top: 0px;
     left: 250px;
+  
+    h2 {
+      margin: auto;
+      font-size: 30px;
+      padding: 25px;
+    }
+  
+    p {
+      color: $paragraf-color;
+      margin: auto;
+      margin-bottom: 25px;
+      text-align: center;
+      width: 50%;
+    }
 }
-div.section-title h2{
-    margin: auto;
-    font-size: 30px;
-    padding: 25px;
-}
-div.section-title p{
-    color: #abadb1;
-    margin: auto;
-    margin-bottom: 25px;
-    text-align: center;
-    width: 50%
-
-}
+  
 
 form#contact-form{
     width: 50%;
@@ -348,8 +344,7 @@ form#contact-form{
 input{
     width: 50%;
     height: 30px;
-    border: solid 2px #f7f7f7;
-    background-color:#f7f7f7;
+    @include borderBtn;
     outline: none;
     border-radius: 10px;
     box-shadow: inset 0 0px 1px rgba(0,0,0,0.07);
@@ -361,8 +356,7 @@ input{
 textarea{
     width: 100%;
     height: 150px;
-    border: solid 2px #f7f7f7;
-    background-color: #f7f7f7;
+    @include borderBtn;
     outline: none;
     border-radius: 10px;
     box-shadow: inset 0 0px 1px rgba(0,0,0,0.07);
@@ -371,7 +365,7 @@ input:focus, textarea:focus {
 background   : rgba(0,0,0,.1);
 border-radius: 5px;
 }
-button.form{
+button.form {
     display: inline-block;
     width: 150px;
     margin-top: 40px;
@@ -379,12 +373,13 @@ button.form{
     text-align: center;
     line-height: 15px;
     text-transform: uppercase;
-    border: 1px solid #fff;
+    border: 1px solid $light-color;
     padding: 10px;
     border-radius: 10px;
-}
-button.form:hover{
-    background-color: #f7600f;
+  
+    &:hover {
+      background-color: $btnColor;
+    }
 }
 form#contact-form img.social-icons{
     width: 40%;
@@ -397,7 +392,7 @@ footer{
     width: 100%;
 }
 p.footer{
-    color: #abadb1;
+    color: $padding-color;
     font-size: 12px;
     width: 50%;
     text-align: left;
@@ -444,15 +439,13 @@ p.footer{
     margin-left: 6%;
     margin-right: 2%;
     padding-bottom: 40px;
-    }
 
-    article.team img {
+    img {
         width: 80%
     }
 }
+}
 @media all and (max-width:800px) and (min-width:540px) {
-
-    
 
     main {
         height: 1200px;
@@ -476,8 +469,8 @@ p.footer{
         position: absolute;
         top: 265px;
         left: 90px;
-    }
-    form#contact-form img.social-icons{
+    
+        img.social-icons{
         display: block;
         margin-top: 50px;
         margin: 50px auto;
@@ -485,23 +478,23 @@ p.footer{
         top: 240px;
         left: 270px;
     }
+}
+
     div.section-title{
         text-align: center;
         position: absolute;
         top: 16px;
         left: 42px;
-    }
-
-    
-    div.section-title p {
+     p {
         width: 80%;
     }
+}
 
     footer{
         height: 150px;
     }
     p.footer{
-        color: #abadb1;
+        color: $padding-color;
         font-size: 12px;
         width: 60%;
         padding-top: 85px;
@@ -521,40 +514,52 @@ p.footer{
         background-color:#bebebe ;
         padding: 15px;
     }
-    p#logo{
-        float: left;
-        margin-top: 0;
-    }
-    p#menu{
-        float: right;
-        padding-left: 10px;
-        padding-bottom: 5px;
-        margin-top: 0;
-    }
-    p#menu img{
-        padding-left: 10px;
-    }
+    
+    p {
+        &#logo {
+          float: left;
+          margin-top: 0;
+        }
+  
+        &#menu {
+          float: right;
+          padding-left: 10px;
+          padding-bottom: 5px;
+          margin-top: 0;
+  
+          img {
+            padding-left: 10px;
+          }
+        }
+      }
+  
+
     section.main-intro{
         max-width: 600px;
         margin: -30px -160px;
         position: absolute;
     }
-    div.container1{
-        display: inline-block;
-        width: 100%;
-    }
-    div.row{
-        padding: 40px;
-    
-    }
-    div.row h3{
-        display: block;
-    }
-    div.icon {
-        position: absolute;
-        top: 12%;
-        left: 36%;
-    }
+    div {
+        &.container1 {
+          display: inline-block;
+          width: 100%;
+        }
+  
+        &.row {
+          padding: 40px;
+  
+          h3 {
+            display: block;
+          }
+        }
+  
+        &.icon {
+          position: absolute;
+          top: 12%;
+          left: 36%;
+        }
+      }
+  
     
     form.newsleter{
         display: block;
@@ -578,41 +583,45 @@ p.footer{
         background-image: none;
         background-color: #434f5a;
     }
-    img.arrowl{
-        display: none;
+    img {
+        &.arrowl, &.arrowr {
+          display: none;
+        }
+  
+        &#avatar {
+          position: absolute;
+          top: 15px;
+          right: 180px;
+        }
     }
-    img.arrowr{
-        display: none;
-    }
-    img#avatar{
-        position: absolute;
-        top: 15px;
-        right: 180px;
-    }
+
     .testimonials p{
-        color: #abadb1;
+        color: $paragraf-color;
         position: absolute;
         font-style: italic;
         top: 155px;
         left: 15px;
     }
-    section#team{
-        width: 100%;
-        margin: 70px auto;
-        text-align: center;
-        height: 1800px;
-
-    
+    section {
+        &#team {
+          width: 100%;
+          margin: 70px auto;
+          text-align: center;
+          height: 1800px;
+        }
+  
+        &#contact {
+          background-image: none;
+          background-repeat: no-repeat;
+          background-color: #3b444d;
+          width: 100%;
+          max-width: 1400px;
+          height: 600px;
+          position: relative;
+        }
     }
-    section#contact{
-        background-image: none;
-        background-repeat: no-repeat;
-        background-color: #3b444d;
-        width: 100%;
-        max-width: 1400px;
-        height: 600px;
-        position: relative;
-    }
+  
+  
     div.section-title{
         margin-top: 50px;
         margin-bottom: 50px;
@@ -639,12 +648,11 @@ p.footer{
         height: 150px;
     }
     p.footer{
-        color: #abadb1;
+        color: $padding-color;
         font-size: 12px;
         width: 60%;
         padding-top: 85px;
         
     }
 
-}
- 
+}}

@@ -1,0 +1,14 @@
+@mixin borderBtn (){
+    border: solid 2px #f7f7f7;
+    background-color:#f7f7f7;
+}
+@mixin marginZero-paddingZero(){
+    margin: 0;
+    padding: 0;
+}
+@mixin centerPosition($x, $y) {
+    position: absolute;
+    left: $x;
+    top: $y;
+    -ms-transform: translate(-$x, -$y);
+}
