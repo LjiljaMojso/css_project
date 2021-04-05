@@ -22,23 +22,20 @@ header {
     color:$light-color;
     position: relative;
 }
-section.navigation{
+.navigation{
     margin-top: 10px;
     max-width: 1000px;
     width: 60%;
     text-align: center;
     margin: auto;
-
-   .main-intro{
-       max-width: 1000px;
-       width: 60%;
-       text-align:center;
-       margin: auto;
-       position: absolute;
-       left: 260px;
-       top: 70px;
-    }
 }
+.main-intro{
+    @extend .navigation;
+    position: absolute;
+    left: 260px;
+    top: 70px;
+}
+
 p {
     color:$light-color;
     margin: auto;
@@ -69,16 +66,8 @@ h1{
     
 }
 p.btn{
-    display: inline-block;
-    width: 150px;
     margin-top: 25px;
-    margin-left: 25px;
-    text-align: center;
-    line-height: 15px;
-    text-transform: uppercase;
-    border: 1px solid $light-color;
-    padding: 10px;
-    border-radius: 10px;
+    @include mainBtnClass;
 
     &:hover{
       background-color:$btnColor;
@@ -92,28 +81,24 @@ div.container1{
     display: flex;
     margin-top: 60px;
     margin-bottom: 60px;
+
 }
-p.about{
-    color: $padding-color;
-    
-}
+
+
 div.row{
     padding:15px;
     position: relative;
-
-}
-h3{
+    h3{
     display: inline-block;
     color:$paragraf-color ;
     font-size: 18px;
     text-align: center;
-}
-img.circle{
+    }
+    img.circle{
     margin: 5px;
     padding: 50px;
-    
-}
-div.icon{
+    }
+    div.icon{
     background-color: transparent;
     border: 2px solid $paragraf-color;
     width: 145px;
@@ -122,14 +107,19 @@ div.icon{
     position: absolute;
     top: 6%;
     left: 21%;
+    }
+    p.about{
+    color: $paragraf-color;
+    }
 }
 
-section#newsleter{
+#newsleter{
     background-image: url(../img/newsletter-background.jpg);
     width: 100%;
     height: 180px;
     position: relative;
 }
+
 form.newsleter{
     position: absolute;
     left: 300px;
@@ -147,87 +137,79 @@ input.newsleter{
 }
 
 button.btn{
-    background-color:$btnColor;
-    display: inline-block;
-    width: 150px;
+    background-color:$btnColor; 
     margin-top: 0px;
-    margin-left: 15px;
-    text-align: center;
-    line-height: 15px;
-    text-transform: uppercase;
-    color: #f7f7f7;
-    border: 1px solid $light-color;
-    padding: 10px;
-    border-radius: 10px;
-
-    &:hover{
+    @include mainBtnClass;
+      &:hover{
     background-color:$light-color;
     color: $btnColor;
     }
 }
+
 main{
     width: 100%;
     margin: 50px auto;
     max-width: 1000px;
     text-align: center;
-}
-p#works-paragraf{
-    color: $paragraf-color;
-    margin: auto;
-    margin-bottom: 25px;
-    text-align: center;
-    width: 50%
-}
+
+    #works-paragraf{
+       color: $paragraf-color;
+       margin: auto;
+       margin-bottom: 25px;
+       text-align: center;
+       width: 50%
+    } 
+} 
 .container{
-    position: relative;
-    width: 22%;
-    float: left;
-    margin-right: 0%;
-    margin-left: 8%;
+       position: relative;
+       width: 22%;
+       float: left;
+       margin-right: 0%;
+       margin-left: 8%;
 }
 .image{
-    opacity: 1;
-    display: block;
-    padding-bottom: 7%;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-    padding-top: 10%;
-    padding-bottom: 10%;
+       opacity: 1;
+       display: block;
+       padding-bottom: 7%;
+       width: 100%;
+       height: auto;
+       transition: .5s ease;
+       backface-visibility: hidden;
+       padding-top: 10%;
+       padding-bottom: 10%;
 }
 .middle{
-    transition: .5s ease;
-    opacity: 0;
-    @include centerPosition(50%,50%);
-    text-align: center;
+       transition: .5s ease;
+       opacity: 0;
+       @include centerPosition(50%,50%);
+       text-align: center;
 }
 .container:hover .image{
-    opacity: 0.3;
+       opacity: 0.3;
 }
 .container:hover .middle{
-    opacity: 1;
+       opacity: 1;
 }
 .text {
-    background-color: $btnColor;
-    color: white;
-    font-size: 16px;
-    padding: 15px 28px;
+      background-color: $btnColor;
+      color: white;
+      font-size: 16px;
+      padding: 15px 28px;
 }
 
 #testimonials{
     width: 100%;
     background-image: url(../img/testimonials-background.jpg);
     height: 300px;
-}
-.testimonials{
-    width: 100%;
-    max-width: 1000px;
-    margin: 70px auto;
-    text-align: center;
-    position: relative;
-}
 
+     .testimonials{
+       width: 100%;
+       max-width: 1000px;
+       margin: 70px auto;
+       text-align: center;
+       position: relative;
+}
+}
 img{
     &.arrowl {
         position: absolute;
@@ -366,17 +348,8 @@ background   : rgba(0,0,0,.1);
 border-radius: 5px;
 }
 button.form {
-    display: inline-block;
-    width: 150px;
-    margin-top: 40px;
-    margin-left: 0px;
-    text-align: center;
-    line-height: 15px;
-    text-transform: uppercase;
-    border: 1px solid $light-color;
-    padding: 10px;
-    border-radius: 10px;
-  
+    @include mainBtnClass;
+    margin-top: 30px;
     &:hover {
       background-color: $btnColor;
     }
@@ -392,7 +365,7 @@ footer{
     width: 100%;
 }
 p.footer{
-    color: $padding-color;
+    color: $paragraf-color;
     font-size: 12px;
     width: 50%;
     text-align: left;
@@ -401,11 +374,10 @@ p.footer{
 }
 /*responsive*/
 
-@media all and (max-width:900px) and (min-width:541px){
+@media all and (max-width:900px){
     
     section.main-intro{
-        width: 50%;
-        margin: -20px -50px;
+        margin-left: 60px;
         position: absolute;
     }
     div.container1{
@@ -494,7 +466,7 @@ p.footer{
         height: 150px;
     }
     p.footer{
-        color: $padding-color;
+        color: $paragraf-color;
         font-size: 12px;
         width: 60%;
         padding-top: 85px;
@@ -531,14 +503,8 @@ p.footer{
             padding-left: 10px;
           }
         }
-      }
-  
-
-    section.main-intro{
-        max-width: 600px;
-        margin: -30px -160px;
-        position: absolute;
     }
+  
     div {
         &.container1 {
           display: inline-block;
@@ -648,7 +614,7 @@ p.footer{
         height: 150px;
     }
     p.footer{
-        color: $padding-color;
+        color: $paragraf-color;
         font-size: 12px;
         width: 60%;
         padding-top: 85px;

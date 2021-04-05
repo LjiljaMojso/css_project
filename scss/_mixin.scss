@@ -1,6 +1,6 @@
 @mixin borderBtn (){
-    border: solid 2px #f7f7f7;
-    background-color:#f7f7f7;
+    border: solid 2px $text-color;
+    background-color:$text-color;
 }
 @mixin marginZero-paddingZero(){
     margin: 0;
@@ -10,5 +10,16 @@
     position: absolute;
     left: $x;
     top: $y;
-    -ms-transform: translate(-$x, -$y);
+    transform: translate(-$x, -$y);
+}
+@mixin mainBtnClass (){
+    display: inline-block;
+    width: 150px;
+    margin-left: 25px;
+    text-align: center;
+    line-height: 15px;
+    text-transform: uppercase;
+    border: 1px solid $light-color;
+    padding: 10px;
+    border-radius: 10px;
 }
