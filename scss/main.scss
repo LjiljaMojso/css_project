@@ -25,15 +25,12 @@ header {
 .navigation{
     margin-top: 10px;
     max-width: 1000px;
-    width: 60%;
+    width: 70%;
     text-align: center;
     margin: auto;
 }
 .main-intro{
     @extend .navigation;
-    position: absolute;
-    left: 260px;
-    top: 70px;
 }
 
 p {
@@ -105,7 +102,7 @@ div.row{
     height: 145px;
     border-radius: 70px;
     position: absolute;
-    top: 6%;
+    top: 8%;
     left: 21%;
     }
     p.about{
@@ -122,10 +119,9 @@ div.row{
 
 form.newsleter{
     position: absolute;
-    left: 300px;
-    top: 60px;
+    top: 30%;
+    right: 0%;
     width: 80%;
-    margin: auto;
 }
 input.newsleter{
     height: 37px;
@@ -374,12 +370,13 @@ p.footer{
 }
 /*responsive*/
 
-@media all and (max-width:900px){
+@media all and (max-width:900px)and (min-width:500px){
     
-    section.main-intro{
-        margin-left: 60px;
+  /*   .main-intro{
+        width: 50%;
+        margin: -20px -50px;
         position: absolute;
-    }
+    } */
     div.container1{
         display: flex;
         flex-direction: column;
@@ -504,33 +501,35 @@ p.footer{
           }
         }
     }
+
   
-    div {
+    div{
         &.container1 {
           display: inline-block;
-          width: 100%;
-        }
+          width: 80%;
+          margin-left: 60px;
   
-        &.row {
+        .row {
           padding: 40px;
   
-          h3 {
+           h3 {
             display: block;
           }
-        }
-  
-        &.icon {
+          .icon {
           position: absolute;
           top: 12%;
-          left: 36%;
-        }
-      }
+          left: 32%;
+          }
+        }  
+    }
+    }
   
     
     form.newsleter{
         display: block;
         top:65px;
-        left: 75px;
+        left: 0px;
+        margin-left: 20px;
     }
 
     main{
@@ -542,7 +541,7 @@ p.footer{
     float: left;
     margin-right: 0%;
     margin-left: 12%;
-}
+    }
  
     #testimonials{
         height: 280px;
@@ -573,7 +572,12 @@ p.footer{
           width: 100%;
           margin: 70px auto;
           text-align: center;
-          height: 1800px;
+          height: 2600px;
+        }
+        .team{
+            display:inline-block;
+            width: 80%;
+          margin-left: 60px;
         }
   
         &#contact {

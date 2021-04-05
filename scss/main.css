@@ -27,15 +27,9 @@ header {
 .navigation, .main-intro {
   margin-top: 10px;
   max-width: 1000px;
-  width: 60%;
+  width: 70%;
   text-align: center;
   margin: auto;
-}
-
-.main-intro {
-  position: absolute;
-  left: 260px;
-  top: 70px;
 }
 
 p {
@@ -119,7 +113,7 @@ div.row div.icon {
   height: 145px;
   border-radius: 70px;
   position: absolute;
-  top: 6%;
+  top: 8%;
   left: 21%;
 }
 
@@ -136,10 +130,9 @@ div.row p.about {
 
 form.newsleter {
   position: absolute;
-  left: 300px;
-  top: 60px;
+  top: 30%;
+  right: 0%;
   width: 80%;
-  margin: auto;
 }
 
 input.newsleter {
@@ -425,11 +418,12 @@ p.footer {
 }
 
 /*responsive*/
-@media all and (max-width: 900px) {
-  section.main-intro {
-    margin-left: 60px;
-    position: absolute;
-  }
+@media all and (max-width: 900px) and (min-width: 500px) {
+  /*   .main-intro{
+        width: 50%;
+        margin: -20px -50px;
+        position: absolute;
+    } */
   div.container1 {
     display: flex;
     flex-direction: column;
@@ -545,23 +539,25 @@ p.footer {
   }
   div.container1 {
     display: inline-block;
-    width: 100%;
+    width: 80%;
+    margin-left: 60px;
   }
-  div.row {
+  div.container1 .row {
     padding: 40px;
   }
-  div.row h3 {
+  div.container1 .row h3 {
     display: block;
   }
-  div.icon {
+  div.container1 .row .icon {
     position: absolute;
     top: 12%;
-    left: 36%;
+    left: 32%;
   }
   form.newsleter {
     display: block;
     top: 65px;
-    left: 75px;
+    left: 0px;
+    margin-left: 20px;
   }
   main {
     height: 3200px;
@@ -597,7 +593,12 @@ p.footer {
     width: 100%;
     margin: 70px auto;
     text-align: center;
-    height: 1800px;
+    height: 2600px;
+  }
+  section .team {
+    display: inline-block;
+    width: 80%;
+    margin-left: 60px;
   }
   section#contact {
     background-image: none;
